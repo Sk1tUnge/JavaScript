@@ -1,0 +1,25 @@
+<html>
+<body>
+
+<p>Виберіть мову програмування.</p>
+
+<select id="mySelect" onchange="myFunction()">
+  <option value="С++">C++</option>
+  <option value="Python">Python</option>
+  <option value="Java">Java</option>
+  <option value="Ruby">Ruby</option>
+</select>
+
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("mySelect").value;
+  document.getElementById("demo").innerHTML = "Ви вибрали: " + x;
+}
+</script>
+
+
+</body>
+</html>
