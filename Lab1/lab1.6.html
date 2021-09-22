@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Завдання №6</title>
+</head>
+<body>
+    <main>
+        <form id="main">
+            <input type="text" id="continent" placeholder="Назва континента"><br>
+            <label>Густота та площа</label>
+            <input type="text" size="25" id="densityAndArea"><br>
+            <input type="button" value = "Показати" onClick="showDensityAndArea()"><br>
+
+            <label>Кількість населення</label>
+            <input type="text" id="population"><br>
+            <input type="button" value = "Показати" onClick="showPopulation()"><br>
+        </form>
+    </main>
+    <script>
+        const continents = ["Євразія", "Північна Америка", "Південна Америка", "Африка", "Австралія", "Антарктида"];
+        const density = [99.8, 22.9, 21.4, 42.1, 3.3, 0.000283];
+        const area = [54.7, 24.93, 17.8, 30.3, 7.68, 14.2]
+
+        function getIndex() {
+            let continent = main.continent.value;
+            let index = continents.indexOf(continent);
+            if (index === -1) {
+                alert("Невідомий континент: )");
+            }
+            return index
+        }
+
+        function showDensityAndArea() {
+            let index = getIndex()
+            main.densityAndArea.value = `${density[index]} осіб/км^2, ${area[index]} млн км^2`;
+        }
+
+        function showPopulation() {
+            let index = getIndex()
+            main.population.value = `${density[index] * area[index]} млн осіб`
+        }
+    </script>
+</body>
+</html>

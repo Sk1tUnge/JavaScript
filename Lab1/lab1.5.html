@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>Завдання №5</title>
+</head>
+<body>
+    <form id="formula">
+        <input type="text" id="result" placeholder="Розрахунок числового ряду..."><br>
+         <input type="button" value = "Обчислити" onClick = "calculate()">
+    </form>
+    <script>
+        function factorial(n){
+            let result = 1;
+    if (n == 0 || n == 1){
+    return result;
+     }
+     else{
+    for(var i = n; i >= 1; i--){
+      result = result * i;
+    }
+    return result;
+        }
+    }
+        function calculate(a) {
+            let sum = 0, i = 2, cur = 0;
+
+            do {
+                cur = (((-1) ** i) * i + 1 / i - 2 * factorial(i))          
+                sum += cur;
+                i++;
+            } while(i <= 6)
+
+            formula.result.value = "" + sum;
+        }
+    </script>
+    <p>Неможливо вирішити приклад</p>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>Завдання №4</title>
+</head>
+<body>
+    <main>
+        <form id="calculator">
+            <input type="text" id="x" placeholder="Введіть x"><br>
+            <input type="text" id="y" placeholder="Введіть y"><br>
+            <input type="text" id="result" placeholder="Результат"><br>
+            <input type="button" value = "Обчислити" onClick = "calculate()">
+        </form>
+    </main>
+    <script>
+        function calculate(a) {
+            let x = parseInt(calculator.x.value);
+            let y = parseInt(calculator.y.value);
+            let result;
+
+            if(x / y > 0) {
+                result = 2 * x * y - 3;
+            } else if (x > 0 && y < 3) {
+                result = x * y / 3;
+            } else {
+                result = 2 * x - 3 * y;
+            }
+            calculator.result.value = '' + result;
+        }
+    </script>
+</body>
+</html>

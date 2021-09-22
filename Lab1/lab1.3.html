@@ -3,22 +3,35 @@
 
 <p>Виберіть мову програмування.</p>
 
-<select id="mySelect" onchange="myFunction()">
+<p id="window"></p>
+
+<select id="mySelect" onchange ="myFunction()" onmouseover="call()">
   <option value="С++">C++</option>
   <option value="Python">Python</option>
   <option value="Java">Java</option>
   <option value="Ruby">Ruby</option>
+
 </select>
 
+<script>
+  function myFunction(message) {
+      result.value = message;
+  }
+</script>
 
 <p id="demo"></p>
 
 <script>
-function myFunction() {
-  var x = document.getElementById("mySelect").value;
+function myFunction()  { 
+  let x = document.getElementById("mySelect").value;
   document.getElementById("demo").innerHTML = "Ви вибрали: " + x;
 }
+function call() {
+  document.getElementById("window").innerHTML = "Вибирайте";
+}
 </script>
+
+
 
 
 </body>
