@@ -1,0 +1,60 @@
+
+<html>
+    <head>
+        <title>Завдання 3</title>
+    </head>
+    <body>
+        <form id = "main">
+            <table>
+                <tr>
+                    <td>Кількість рядків:</td>
+                    <td> <input type="text" id = "t_rows"></td>
+                </tr>
+                <tr>
+                    <td>Кількість стовбців:</td>
+                    <td><input type="text" id = "t_columns"></td>
+                </tr>
+                <tr>
+                    <td><input type = "button" onClick = "creation();" value = "Створити матрицю"><br></td>
+                </tr>
+                <tr>
+                    <td><input type = "button" onClick = "calculate();" value = "Обчислити"><td>
+                </tr>
+            </table>
+            <div id = "functions"></div>
+        </form>
+        <script>
+            let rows, columns, value;
+            function creation() {
+                rows = parseFloat(main.t_rows.value);
+                columns = parseFloat(main.t_columns.value);
+                let matrix = "<table>\n";
+                for(let i=1;i<=rows;i++){
+                    matrix+="<tr>\n";
+                    for(let j=1;j<=columns;j++) {
+                        value = 1 / (2 + j)
+                        matrix += "<td>";
+                        matrix += "<input type = \"text\" id = \"_" + i + "_" + j + "\" value = \"" + value + "\">";
+                        matrix += "<\/td>\n";
+                    }
+                    matrix+="<\/tr>\n";
+                }
+                matrix += "<\/table>";
+                functions.innerHTML = matrix;
+            }
+            function calculate() {
+                let matrix = "";
+                let result = "";
+                let sum = 0;
+                for(let i = 2; i <= 2; i++) {
+                    for(let j = 1; j <= columns; j++) {
+                        matrix = "sum += parseFloat(main._" + i + "_" + j + ".value);";
+                        eval(matrix);
+                    }
+                }
+                result = "Сумма другого рядка = " + sum
+                alert(result);
+            }
+        </script>
+    </body>
+    </html>
