@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>Завдання №3</title>
+    </head>
+    <body onload="setButtons()">
+        <script>
+            let languge = true;
+            let ua_keys = ['й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 
+                        'ї', 'ф', 'і', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж',
+                        'є', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю'];
+            let eng_keys = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', 
+                        ']', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';',
+                        "'", 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.'];
+
+        function setButtons(keys = ua_keys) {
+            let keyboard_html = ""
+            let line = 12;
+            keys.map((key, index) => {
+                if(index === line) {
+                    keyboard_html += "<br>"
+                    line += 11
+                }
+                keyboard_html += `<button onclick="printAction('${key}')">${key}</button>`
+            })
+            keyboard.innerHTML = keyboard_html;
+        }
+        
+        function printAction(key) {
+            document.getElementById('display').value += key;
+        }
+
+        function Clean() {
+            document.getElementById('display').value = "";
+        }
+        function changeLanguage() {
+            if(languge) {
+                setButtons(eng_keys);
+                languge = false
+            } else {
+                setButtons(ua_keys)
+                languge = true
+            }
+        }
+        </script>
+        <main>
+            <textarea id="display"></textarea>
+            <div id="keyboard"></div>
+            <button type="button" class="cleanButton" onclick="Clean()">Очистити</button>
+            <button type="button" class="controlButton" onclick="changeLanguage()">Alt + Shift</button>
+        </main>
+    </body>
+</html>

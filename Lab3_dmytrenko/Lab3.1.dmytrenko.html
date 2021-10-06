@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Завдання №1</title>
+    </head>
+    <body>
+        <script>
+            function calculate_parameters() {
+                let width = +document.getElementById('width').value;
+                let length = +document.getElementById('length').value;
+    
+                let perimeter = (width + length) * 2;
+                let area = width * length;
+                let diagonal = (width ** 2 + length ** 2) ** (1/2);
+    
+                document.getElementById('P').innerHTML = perimeter
+                document.getElementById('S').innerHTML = width * length
+                document.getElementById('D').innerHTML = diagonal.toFixed(2)
+            }
+        </script>
+        <main>
+            <form id="form">
+                <p>Довжина <input type="text" id="width" placeholder=" " onchange="calculate_parameters()"><br></p>
+                Ширина  <input type="text" id="length" placeholder=" " onchange="calculate_parameters()"><br>
+            </form>
+                <span>Периметр:</span>
+                <span id="P"></span><br>
+
+                <span>Площа:</span>
+                <span id="S"></span><br>
+
+                <span>Довжина діагоналі:</span>
+                <span id="D"></span>
+        </main>
+    </body>
+</html>

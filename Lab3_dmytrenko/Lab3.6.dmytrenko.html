@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>Завдання №6</title>
+</head>
+<body>
+    <main>
+        <div class="hierarchy">
+        <ul class="tree" id="tree">
+            <li>Cars
+              <ul>
+                <div>
+                <li>Mercedes</li>
+                <li>Ferrari</li>
+                <li>Bentley</li>
+                <li>Mitsubishi</li>
+                <li>Skoda</li>
+                </div>
+                    <li>Colors
+                      <ul>
+                        <div>
+                        <li>Red</li>
+                        <li>White</li>
+                        <li>Yellow</li>
+                        <li>Purple</li>
+                        </div>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+            </ul>
+        </div>
+    </main>
+    <script>
+        for (let li of tree.querySelectorAll('li')) {
+            let span = document.createElement('span');
+            li.prepend(span);
+            span.append(span.nextSibling);
+        }
+        tree.onclick = function (event) {
+            if (event.target.tagName != 'SPAN') return;
+            let childrenContainer = event.target.parentNode.querySelector('ul');
+            if (!childrenContainer) return;
+            childrenContainer.hidden = !childrenContainer.hidden;
+        }
+    </script>
+</body>
+</html>

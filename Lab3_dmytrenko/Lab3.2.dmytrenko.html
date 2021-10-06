@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Завдання №2</title>
+    </head>
+    <body onload="setButtons()">
+        <script>
+            let keys = ['й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 
+                        'ї', 'ф', 'і', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж',
+                        'є', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю'];
+        function setButtons() {
+            let keyboard_html = ""
+            let line = 12;
+            keys.map((key, index) => {
+                if(index === line) {
+                    keyboard_html += "<br>"
+                    line += 11
+                }
+                keyboard_html += `<button onclick="printAction('${key}')">${key}</button>`
+            })
+            keyboard.innerHTML = keyboard_html;
+        }
+        
+        function printAction(key) {
+            document.getElementById('display').value += key;
+        }
+
+        function Clean() {
+            document.getElementById('display').value = "";
+        }
+        </script>
+        <main>
+            <textarea id="display"></textarea>
+            <div id="keyboard"></div>
+            <button type="button" class="cleanButton" onclick="Clean()">Очистити</button>
+        </main>
+    </body>
+</html>

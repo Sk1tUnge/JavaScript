@@ -1,0 +1,53 @@
+<html>
+<head>
+    <title>Завдання №5</title>
+</head>
+<body onload="generateExpretion()">
+    <script>
+        let answers = 0, taskNumber = 0, first_num, second_num;
+
+        function generateExpretion() {
+            if (checkAnswer()) {
+                answers++;
+            }
+            taskNumber++;
+            if (taskNumber === 11) {
+                alert(`Ваш загальний рахунок: ${(answers / 10) * 100}%`)
+                location.reload();
+            }
+            document.getElementById("answer").value = "";
+            document.getElementById("check").innerText = "";
+                first_num = Math.floor(Math.random() * 9 + 1);
+                second_num = Math.floor(Math.random() * 9 + 1);
+                document.getElementById("expresion").innerText = `${first_num} * ${second_num} =`;
+                document.getElementById("answers").innerText = `Загальний рахунок: ${parseInt((answers/10) * 100)}% (${answers} правильних відповідей з 10)`;
+        }
+        function checkAnswer() {
+            let answer = +document.getElementById("answer").value;
+
+            if ((first_num * second_num) === answer) {
+                document.getElementById("check").innerText = "Відповідь правильна";
+                return true;
+            } else {
+                document.getElementById("check").innerText = `Помилка, правильна відповідь: ${first_num * second_num}`;
+                return false;
+            }
+        }
+    </script>
+    <main>
+        <div id="answers"></div>
+
+        <div>
+        <label id="expresion"></label>
+        <input type="text" id="answer">
+        </div>
+
+        <div id="check"></div>
+
+        <div class="butttons">
+            <button type="button" onclick="checkAnswer()">Перевірити</button>
+            <button type="button" onclick="generateExpretion()">Наступне завдання</button>
+        </div>
+    </main>
+</body>
+</html>

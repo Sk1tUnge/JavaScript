@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>Завдання №4</title>
+</head>
+<body onload="setCarousel()">
+    <script>
+        const photos = ["ruby.jpg", "johny.png", "guts.jpg", "hamster.jpg"];
+        const folder = "images/";
+        let photoIndex = 0;
+
+        function setCarousel() {
+            if (photoIndex > photos.length - 1) {
+                photoIndex = 1;
+            }
+            if (photoIndex < 0) {
+                photoIndex = photos.length - 1;
+            }
+
+            carousel = document.getElementById("carousel");
+            carousel.innerHTML = `<img src=${folder + photos[photoIndex]}>`
+        }
+
+        function nextPhoto() {
+            setCarousel(photoIndex += 1);
+        }
+
+        function previousPhoto() {
+            setCarousel(photoIndex -= 1);
+        }
+    </script>
+    <main>
+        <div id="carousel">
+        </div>
+        <button class="previous" onclick="previousPhoto()">Назад</button>
+        <button class="next" onclick="nextPhoto()">Вперед</button>
+    </main>
+</body>
+</html>
