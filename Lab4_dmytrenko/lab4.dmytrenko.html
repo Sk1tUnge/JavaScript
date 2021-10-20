@@ -63,8 +63,8 @@
             </div>
 
             <div>
-                <p>Переведіть слово Appreciate</p>
-                <input type="text" id="question6">
+                <p>2 + 2 * 2</p>
+                <input type="number" id="question6" min="0" max="10">
             </div>
 
             <div>
@@ -97,9 +97,8 @@
             }
 
             if (document.getElementById("question5").value === "Приблизно") score++;
-            if (document.getElementById("question6").value === "Цінувати") score++;
             if (document.getElementById("question5").value === "приблизно") score++;
-            if (document.getElementById("question6").value === "цінувати") score++;
+            if (document.getElementById("question6").value === "6") score++;
 
             document.getElementById('result').innerText = 'Ваш результат: ' + score + ' з 8';
         };
