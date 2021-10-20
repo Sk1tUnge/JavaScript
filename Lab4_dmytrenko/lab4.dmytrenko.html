@@ -1,0 +1,108 @@
+<html>
+<head>
+    <title>Завдання №4</title>
+</head>
+<body>
+    <main>
+        <form id="form">
+            <div>
+                <p>Mathematics _____ a logical science</p>
+
+                <input type="radio" name="question1" value="1">
+                <label>was</label><br>
+
+                <input type="radio" name="question1" value="2">
+                <label>is</label><br>
+
+                <input type="radio" name="question1" value="3">
+                <label>been</label><br>
+            </div>
+
+            <div>
+                <p>This cloth _____ soft and smooth</p>
+
+                <input type="radio" name="question2" value="1">
+                <label>feel</label><br>
+
+                <input type="radio" name="question2" value="2">
+                <label>feeling</label><br>
+                
+                <input type="radio" name="question2" value="3">
+                <label>feels</label><br>
+            </div>
+
+            <div>
+                <p>Синоніми до слова Slice </p>
+
+                <input type="checkbox" name="question3" value="1">
+                <label>Cut</label><br>
+                <input type="checkbox" name="question3" value="2">
+                <label>Knife</label><br>
+                <input type="checkbox" name="question3" value="3">
+                <label>Shovel</label><br>
+                <input type="checkbox" name="question3" value="4">
+                <label>Chop</label><br>
+            </div>
+
+            <div>
+                <p>Синоніми до слова Friend</p>
+
+                <input type="checkbox" name="question4" value="1">
+                <label>Body</label><br>
+                <input type="checkbox" name="question4" value="2">
+                <label>Buddy</label><br>
+                <input type="checkbox" name="question4" value="3">
+                <label>Pal</label><br>
+                <input type="checkbox" name="question4" value="4">
+                <label>Baby</label><br>
+            </div>
+
+            <div>
+                <p>Переведіть слово Approximately</p>
+                <input type="text" id="question5">
+            </div>
+
+            <div>
+                <p>Переведіть слово Appreciate</p>
+                <input type="text" id="question6">
+            </div>
+
+            <div>
+                <button type="button" onclick="Test()">Завершити тестування</button>
+                <h2 id="result"></h2>
+            </div>
+        </form>
+    </main>
+
+    <script>
+        function Test() {
+            let score = 0;
+
+            let question1 = document.getElementsByName('question1');
+            let question2 = document.getElementsByName('question2');
+            let question3 = document.getElementsByName('question3');
+            let question4 = document.getElementsByName('question4');
+
+            for (let variant of question1) {
+                if (variant.checked && variant.value === '2') score++;
+            }
+            for (let variant of question2) {
+                if (variant.checked && variant.value === '3') score++;
+            }
+            for (let variant of question3) {
+                if (variant.checked && (variant.value === '1' || variant.value === '4')) score++;
+            }
+            for (let variant of question4) {
+                if (variant.checked && (variant.value === '2' || variant.value === '3')) score++;
+            }
+
+            if (document.getElementById("question5").value === "Приблизно") score++;
+            if (document.getElementById("question6").value === "Цінувати") score++;
+            if (document.getElementById("question5").value === "приблизно") score++;
+            if (document.getElementById("question6").value === "цінувати") score++;
+
+            document.getElementById('result').innerText = 'Ваш результат: ' + score + ' з 8';
+        };
+    </script>
+</body>
+</html>
