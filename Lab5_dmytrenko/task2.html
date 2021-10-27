@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="style2.css">
+        <title>Завдання 2</title>
+    </head>
+    <body>
+        <div class="top">
+            <h2>Мої одногрупники</h2>
+        </div>
+        <div class="friendBlock">
+            <div class="friend" onclick="tabSwitch('friend1')">
+                <img src="photos/ROM.png"/>
+                <h3>Шкутяк Роман Ігорович</h3>
+            </div>                              
+            <div class="friend" onclick="tabSwitch('friend2')">
+                <img src="photos/DAN.png"/>
+                <h3>Векерик Денис Віталійович</h3>
+            </div>
+            <div class="friend" onclick="tabSwitch('friend3')">
+               <img src="photos/VAS.png"/>
+                <h3>Петрина Василь Михайлович</h3>
+            </div>
+            <div class="friend" onclick="tabSwitch('friend4')">
+                <img src="photos/TOL.png"/>
+                <h3>Мацканюк Анатолій Антонович</h3>
+            </div>
+        </div>
+        <div class="info">
+            <div id="friend1" hidden>
+              <p>Дата народження: 05.01.2003</p>
+              <p>Місце проживання: c.Мостище</p>
+            </div>
+            <div id="friend2" hidden>
+              <p>Дата народження: 23.09.2003</p>
+              <p>Місце проживання: c.Ганьківці</p>
+            </div>
+            <div id="friend3" hidden>
+              <p>Дата народження: 16.03.2002</p>
+              <p>Місце проживання: c.Запитів</p>
+            </div>
+            <div id="friend4" hidden>
+              <p>Дата народження: 07.03.2003</p>
+              <p>Місце проживання: с.Сокирниця</p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function tabSwitch(new_tab) {
+          document.getElementById('friend1').style.display = 'none';
+          document.getElementById('friend2').style.display = 'none';
+          document.getElementById('friend3').style.display = 'none';
+          document.getElementById('friend4').style.display = 'none';
+          document.getElementById(new_tab).style.display = 'block';
+        }
+      </script>
+    </body>
+</html>    
