@@ -9,50 +9,53 @@
             <h2>Мої одногрупники</h2>
         </div>
         <div class="friendBlock">
-            <div class="friend" onclick="tabSwitch('friend1')">
+            <div class="friend" onclick="tabSwitch(event, 'friend1')">
                 <img src="photos/ROM.png"/>
                 <h3>Шкутяк Роман Ігорович</h3>
             </div>                              
-            <div class="friend" onclick="tabSwitch('friend2')">
+            <div class="friend" onclick="tabSwitch(event, 'friend2')">
                 <img src="photos/DAN.png"/>
                 <h3>Векерик Денис Віталійович</h3>
             </div>
-            <div class="friend" onclick="tabSwitch('friend3')">
+            <div class="friend" onclick="tabSwitch(event, 'friend3')">
                <img src="photos/VAS.png"/>
                 <h3>Петрина Василь Михайлович</h3>
             </div>
-            <div class="friend" onclick="tabSwitch('friend4')">
+            <div class="friend" onclick="tabSwitch(event,'friend4')">
                 <img src="photos/TOL.png"/>
                 <h3>Мацканюк Анатолій Антонович</h3>
             </div>
         </div>
         <div class="info">
-            <div id="friend1" hidden>
+            <div id="friend1" class="content" hidden>
               <p>Дата народження: 05.01.2003</p>
               <p>Місце проживання: c.Мостище</p>
             </div>
-            <div id="friend2" hidden>
+            <div id="friend2" class="content" hidden>
               <p>Дата народження: 23.09.2003</p>
               <p>Місце проживання: c.Ганьківці</p>
             </div>
-            <div id="friend3" hidden>
+            <div id="friend3" class="content" hidden>
               <p>Дата народження: 16.03.2002</p>
               <p>Місце проживання: c.Запитів</p>
             </div>
-            <div id="friend4" hidden>
+            <div id="friend4" class="content" hidden>
               <p>Дата народження: 07.03.2003</p>
               <p>Місце проживання: с.Сокирниця</p>
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        function tabSwitch(new_tab) {
-          document.getElementById('friend1').style.display = 'none';
-          document.getElementById('friend2').style.display = 'none';
-          document.getElementById('friend3').style.display = 'none';
-          document.getElementById('friend4').style.display = 'none';
-          document.getElementById(new_tab).style.display = 'block';
-        }
-      </script>
+      <script>
+        function tabSwitch(event, content_id) {
+        for (let tab of document.getElementsByClassName('friend'))
+            tab.classList.remove("active"); 
+    
+        for (let description of document.getElementsByClassName('content'))
+            description.style.display = 'none';
+    
+        event.currentTarget.classList.add('active');
+        document.getElementById(content_id).style.display = 'block';
+    }
+    </script>
     </body>
 </html>    
