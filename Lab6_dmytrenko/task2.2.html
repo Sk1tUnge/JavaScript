@@ -1,0 +1,91 @@
+<html>
+
+<head>
+    <title>Завдання 2.2</title>
+</head>
+
+<body>
+    <form id="main">
+        <div class="group">
+            <h3>Ім'я</h3>
+            <div class="field">
+                <input type="text" id="fname">
+            </div>
+            <span id="field1"></span>
+        </div>
+
+        <div class="group">
+            <h3>Прізвище</h3>
+            <div class="field">
+                <input type="text" id="lname">
+            </div>
+            <span id="field2"></span>
+        </div>
+
+        <div class="group">
+            <h3>Логін</h3>
+            <div class="field">
+                <input type="text" id="login">
+            </div>
+            <span id="field3"></span>
+        </div>
+
+        <div class="group">
+            <h3>Пароль</h3>
+            <div class="field">
+                <input type="text" id="password">
+            </div>
+            <span id="field4"></span>
+        </div>
+
+        <div class="group">
+            <h3>Поштовий індекс</h3>
+            <div class="field">
+                <input type="text" id="postcode">
+            </div>
+            <span id="field5"></span>
+        </div>
+
+        <div class="group">
+            <h3>Електронна пошта</h3>
+            <div class="field">
+                <input type="text" id="email">
+            </div>
+            <span id="field6"></span><br><br>
+        </div>
+        <input type="button" value="Завершити" onclick="check()">
+    </form>
+    <script>
+        const fullnameRegex = /^([A-ZА-ЩЬЮЯҐЄІЇ])+([a-zа-щьюяґєії]+)$/;
+        const loginRegex = /^([a-zA-Z])+$/;
+        const passwordRegex = /^(?=.*[0-9])(?=.*[a-zA-Z])[0-9a-zA-Z]{6,}$/
+        const indexRegex = /^([0-9]){5}$/;
+        const emailRegex = /^([a-z0-9]+)(\.[a-z0-9]+)*@([a-z0-9]+)(\.[a-z0-9]+)*$/i;
+
+        const messages = ["Ім’я повинно містити лише літери: перша літера велика, наступні маленькі, дозволено кирилиця і латина",
+            "Прізвище повинно містити лише літери: перша літера велика, наступні маленькі, дозволено кирилиця і латина",
+            "Логін повинен складатися тільки з латинських літер",
+            "Пароль: мінімум 6 символів, з яких мінімум по 1 букві і цифрі",
+            "Поштовий індекс повинен складатися з 5 цифр",
+            "Електронна пошта повиненна містити '@'"];
+        let messageIndex;
+
+        function checkOneField(id, messageId, regex) {
+            str = document.getElementById(id).value;
+            result = str.match(regex);
+            messageNum = document.getElementById(messageId);
+            result ? messageNum.innerHTML = "<img src='mark.jpg' width='20'> " : messageNum.innerHTML = messages[messageIndex];
+            messageIndex++;
+        }
+        function check() {
+            messageIndex = 0;
+            checkOneField("fname", "field1", fullnameRegex);
+            checkOneField("lname", "field2", fullnameRegex);
+            checkOneField("login", "field3", loginRegex);
+            checkOneField("password", "field4", passwordRegex);
+            checkOneField("postcode", "field5", indexRegex);
+            checkOneField("email", "field6", emailRegex);
+        }
+    </script>
+</body>
+</html>

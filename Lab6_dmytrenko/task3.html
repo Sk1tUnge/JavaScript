@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <title>Завдання 3</title>
+</head>
+
+<body>
+    <div class="form">
+        <form id="main_form">
+            <h3>Завдання 3.1</h3>
+            <input type="text" id="task1" placeholder="Введіть послідовність">
+            <input type="button" value="Обернути послідовність" onclick="reverseNumber()">
+            <p id="result1"></p>
+            <h3>Завдання 3.2</h3>
+            <input type="text" id="task2" placeholder="Введіть послідовність">
+            <input type="button" value="Видалити нулі" onclick="noZeros()">
+            <p id="result2"> </p>
+            <h3>Завдання 3.3</h3>
+            <input type="text" id="task3" placeholder="Введіть текст">
+            <input type="button" value="Обернути рядок" onclick="reverseString()">
+            <p id="result3"></p>
+            <h3>Завдання 3.4</h3>
+            <input type="text" id="task4" value="Я не люблю морозиво">
+            <input type="button" value="Поміняти слова місцями та покласти коми" onclick="replace()">
+            <p id="result4"></p>
+        </form>
+    </div>
+    <script>
+        function reverseNumber() {
+    let text = task1.value;
+    let result = text.split(' ').reverse().join(' ');
+    document.getElementById("result1").innerText = result;
+}
+function noZeros() {
+            str = document.getElementById("task2").value;
+            var arr = str.split(' ')
+            for (i = 0; i < arr.length; i++) {
+                if (arr[i] == 0) arr[i] = '';
+            }
+            result2.innerHTML = arr.join(' ');
+        }
+        function reverseString() {
+            str = document.getElementById("task3").value;
+            result3.innerHTML = str.split("").reverse().join("");
+        }
+        function replace() {
+    let text = task4.value;
+    result = replacer(text);
+    document.getElementById("result4").innerText = result;
+}
+function replacer(string) {
+    let splitedText = string.split(' ');
+    if(splitedText[1] != null && splitedText[2] != null) {
+        let temp = splitedText[1];
+        splitedText[1] = splitedText[2];
+        splitedText[2] = temp;
+    }
+    return splitedText.join(',');
+}
+    </script>
+    </body>
+</html>
