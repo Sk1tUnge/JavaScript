@@ -1,0 +1,21 @@
+<html>
+    <head>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="jquery/jquery-3.4.1.min.js"></script>
+    </head>
+
+    <body>
+        <div class="block2">
+        <h1>Клікни тут!</h1>
+        </div>
+        <script>
+        let $block = $('.block2');
+$block.bind('click', function() {
+    $block.addClass('gold');
+});
+$block.bind('dblclick', function() {
+    $block.removeClass('gold');
+});
+    </script>
+    </body>
+</html> 

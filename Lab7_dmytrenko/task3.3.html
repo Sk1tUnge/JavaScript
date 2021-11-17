@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="jquery/jquery-3.4.1.min.js"></script>
+    </head>
+    <body>
+        <main>
+            <h1 id="action">Show image</h1>
+            <img id="image" src="https://i.playboard.app/p/9b2056b5c3320a21c652020e489a2c82/default.jpg" hidden>
+            <div id="popup" hidden>Поставьте 5 жена рожает</div>
+        </main>
+        <script>
+            $('#action').on('click', function() {
+    $('#image').show();
+});
+$('#image').on('click', function() {
+    $('#image').hide();
+});
+
+$('#image').on("mouseover", function () {
+    $("#popup").show();
+});
+$('#image').on("mouseout", function () {
+    $("#popup").hide();
+});
+    </script>
+    </body>
+</html>

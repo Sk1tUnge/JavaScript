@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="jquery/jquery-3.4.1.min.js"></script>
+    </head>
+    <body>
+        <main>
+            <p> Введіть слово 'correct'.</p>
+            <form action="javascript:alert('Успішно!');">
+                <input type="text">
+                <button type="submit">Перевірити</button>
+            </form>
+            <span></span>
+        </main>
+        <script>
+            $("form").on('submit', function() {
+    if ($("input:first").val() == "correct") {
+      $("span").text().show();
+      return true;
+    }
+    $("span").text("Неправильно!").show().fadeOut(1000);
+    return false;
+}); 
+    </script>
+    </body>
+</html> 

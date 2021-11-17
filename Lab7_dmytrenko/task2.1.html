@@ -1,0 +1,24 @@
+<html>
+<head>
+<script type="text/javascript" src="jquery/jquery-3.4.1.min.js"> </script>
+<script> 
+$(document).ready(function() {
+let $text = $('#hide_text'); // присвоюємо змінній text блок з id = hide_text 
+$text.hide(); // приховуємо отриманий блок
+
+$('.button').click(function() { // при кліці на HTML елемент з класом button 
+$("p:first").text("Перший абзац");
+jQuery("p:last").text("Останній абзац");
+});
+});
+</script>
+</head>
+<body>
+    <h1> Контент сторінки </h1>
+    <a href="#" class="button"> Натисніть, щоб показати текст.</a>
+    <p></p>
+    <p>.....................</p>
+    <p>.....................</p>
+    <p></p>
+</body>  
+</html> 

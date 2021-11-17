@@ -1,0 +1,20 @@
+<html>
+    <head>
+    <script type="text/javascript" src="jquery/jquery-3.4.1.min.js"></script>
+    </head>
+    <body>
+        <div class="block">
+            <button id="click">Одинарний клік</button>
+            <button id="doubleclick">Подвійний клік</button>
+        </div>
+        <script>
+            $('#click').bind('click', function() {
+    alert("Одинарний клік");
+});
+
+$('#doubleclick').bind('dblclick', function() {
+    alert("Подвійний клік");
+});
+        </script>
+    </body>
+</html>

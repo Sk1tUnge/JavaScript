@@ -1,0 +1,23 @@
+<html>
+<head>
+    <script type="text/javascript" src="jquery/jquery-3.4.1.min.js"></script>
+    <script> 
+        $(document).ready(function() {
+        let $block = $('.block');
+        $block.hover(function() {
+        $block.removeClass('black');
+        $block.addClass('red');
+        }, function() {
+        $block.removeClass('red');
+        $block.addClass('black');
+        });
+        });
+    </script>
+</head>
+    <link rel="stylesheet" href="style.css">
+    <body>
+        <div class="block">
+        <h1>Приклад тексту</h1>
+        </div>
+    </body>  
+</html> 
