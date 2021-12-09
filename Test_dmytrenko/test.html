@@ -1,0 +1,122 @@
+<html>
+
+<head>
+    <title>Form</title>
+</head>
+
+<body>
+    <form id="main">
+        <div class="group">
+            <h3>Назва лікарні</h3>
+            <div class="select">
+                <select name="Назва лікарні" id="hospitalname">
+                    <option>Дитяча</option>
+                    <option>Центральна</option>
+                    <option>Коломийська районна</option>
+                   </select>
+            </div>
+            <span id="field1"></span>
+        </div>
+
+        <div class="group">
+            <h3>Назва відділення</h3>
+            <div class="select">
+                <select name="Назва відділення" id="departmentname">
+                    <option>Хірургічне</option>
+                    <option>Травматологічне</option>
+                    <option>Урологічне</option>
+                    <option>Гнійно-септичне</option>
+                    <option>Гінекологічне</option>
+                    <option>Терапевтичне</option>
+                    <option>Неврологічне</option>
+                   </select>
+            </div>
+            <span id="field2"></span>
+        </div>
+
+        <div class="group">
+            <h3>ПІБ лікаря</h3>
+            <div class="field">
+                <input type="text" id="PIB">
+            </div>
+            <span id="field3"></span>
+        </div>
+
+        <div class="group">
+            <h3>Еклектронна пошта</h3>
+            <div class="field">
+                <input type="text" id="email">
+            </div>
+            <span id="field4"></span>
+        </div>
+
+        <div class="group">
+            <h3>Телефон</h3>
+            <div class="field">
+                <input type="text" id="phone">
+            </div>
+            <span id="field5"></span>
+        </div>
+
+        <div class="group">
+            <h3>Дата початку і закінчення відпустки у поточному році
+            </h3>
+            <div class="field">
+                <input type="text" id="date">
+            </div>
+            <span id="field6"></span><br><br>
+        </div>
+        <div class="group">
+            <h3>Години і дні прийому
+            </h3>
+            <div class="field">
+                <div id="checkbox" class="checkbox">
+                    <label for="features"></label>
+                    <div>
+                    <input type="checkbox" id="1" value="1">
+                    <label for="1">Понеділок 12:00 - 16:00</label>
+                    </div>
+                    <div>
+                    <input type="checkbox" id="2" value="2">
+                    <label for="2">Середа 11:00 - 15:00</label>
+                    </div>
+                    <div>
+                    <input type="checkbox" id="3" value="3">
+                    <label for="3">П'ятниця 9:00 - 13:00</label>
+                    </div>
+            </div>
+            <span id="field7"></span><br><br>
+        </div>
+        <input type="button" value="Завершити" onclick="check()">
+    </form>
+    <script>
+        const fullnameRegex = /^([A-ZА-ЩЬЮЯҐЄІЇ])+([a-zа-щьюяґєії]+)* ([A-ZА-ЩЬЮЯҐЄІЇ])+([a-zа-щьюяґєії]+)* ([A-ZА-ЩЬЮЯҐЄІЇ])+([a-zа-щьюяґєії]+)$/;
+        const loginRegex = /^([a-zA-Z])+$/;
+        const passwordRegex = /^(?=.*[0-9])(?=.*[a-zA-Z])[0-9a-zA-Z]{6,}$/
+        const indexRegex = /^[+]380[0-9]{9}$/;
+        const emailRegex = /^([a-z0-9]+)(\.[a-z0-9]+)*@([a-z0-9]+)(\.[a-z0-9]+)*$/i;
+
+        const messages = [
+            "Три слова, повинні починатися із великої літери",
+            "Електронна пошта повиненна містити '@'",
+            "Телефон має відповідати міжнародному українському формату",
+            "Введіть дату"]
+        let messageIndex;
+
+        function checkOneField(id, messageId, regex) {
+            str = document.getElementById(id).value;
+            result = str.match(regex);
+            messageNum = document.getElementById(messageId);
+            result ? messageNum.innerHTML = "√" : messageNum.innerHTML = messages[messageIndex];
+            messageIndex++;
+        }
+        function check() {
+            messageIndex = 0;
+            checkOneField("PIB", "field3", fullnameRegex);
+            checkOneField("email", "field4", emailRegex);
+            checkOneField("phone", "field5", indexRegex);
+            
+        }
+    </script>
+</body>
+</html>
